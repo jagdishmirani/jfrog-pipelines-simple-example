@@ -2,14 +2,14 @@ resources:
   - name: myGitRepo
     type: GitRepo
     configuration:
-      gitProvider: my_github
+      gitProvider: myGitHub
       path: jagdishmirani/jfrog-pipelines-simple-example
       branches:
         include: master
   - name: myBuildInfo
     type: BuildInfo
     configuration:
-      sourceArtifactory: art
+      sourceArtifactory: myArtifactory
       buildName: SampleApp
       buildNumber: 1          
 pipelines:  
@@ -77,4 +77,4 @@ pipelines:
             - name: my_github            
         execution:
           onExecute:
-            - 'curl -H "Authorization: token ${int_my_github_token}" ${int_my_github_url}/rate_limit'
+            - 'curl -H "Authorization: token ${int_myGitHub_token}" ${int_myGitHub_url}/rate_limit'
